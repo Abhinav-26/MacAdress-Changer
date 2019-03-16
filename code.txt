@@ -1,0 +1,20 @@
+#importing a library named subprocess
+import subprocess                                                              
+#Printing a message
+print("Enter the interface_name you want to change")                            
+#taking user input for the interface you want to change mac adress
+interface=p=raw_input()                                                         
+#putting the interface down of the provided interface
+subprocess.call(" ifconfig "+ interface  +" down ", shell=True)                 
+#again printing a message
+print("Enter your own mac adress to change the original one")                   
+#again taking a user input of the mac adress that you wants to assign instead of original mac adress
+mac=raw_input()                                                                 
+#assigning the provided mac adress instead of original
+subprocess.call(" ifconfig "+ interface  +" hw ether "+ mac,shell=True)         
+#putting the interface up
+subprocess.call(" ifconfig "+ interface  +" up ",shell=True)                     
+#printing a message
+print("Mac adress of provided interface has been changed")                      
+#showing the changed mac adress of the provided interface
+subprocess.call(" ifconfig "+ interface, shell=True)                            
